@@ -38,6 +38,25 @@ $(document).ready(function (e) {
         });
     });
 
+    $("#list_item_button_add").on("click", function() {
+        $.ajax({
+            url: ajaxURL,
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                action: "addToList",
+                itemInfo: $("#list_item_input_add").val(),
+                listID: $("#list_item_button_add").attr("data-list")
+            },
+            success: function (data) {
+                if (data["success"]){
+                    // $("#todo-list-items").append();
+                    location.reload(true);
+                }
+            }
+        });
+    });
+
     $("#list_delete").on("click", function() {
         $.ajax({
             url: ajaxURL,
@@ -48,7 +67,6 @@ $(document).ready(function (e) {
                 listID: $("#list_delete").attr("data-list")
             },
             success: function (data) {
-                console.log(data);
                 if (data["success"]){
                     window.location.href = "/todo/";
                 }

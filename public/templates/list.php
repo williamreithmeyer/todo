@@ -6,14 +6,17 @@ $list->set($page->get(0));
 
 $page->head();
 
-echo "<input data-list=\"{$list->listID}\" class=\"form-control-lg\" id=\"list_title_input\" value=\"{$list->name}\">";
+echo "<input data-list=\"{$list->listID}\" class=\"w-100 mb-4 form-control-lg\" id=\"list_title_input\" value=\"{$list->name}\">";
 
-$list->display(); ?>
+echo "<div id=\"todo-list-items\">";
+$list->display();
+echo "</div>";
+?>
 
 <div class="input-group mb-3">
-  <input type="text" id="list-item-input-add" class="form-control" placeholder="Todo Item">
+  <input type="text" id="list_item_input_add" class="form-control" placeholder="Todo Item">
   <div class="input-group-append">
-    <button id="list-item-button-add" class="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
+    <button data-list="<?php echo $list->listID; ?>" id="list_item_button_add" class="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
   </div>
 </div>
 

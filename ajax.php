@@ -53,6 +53,19 @@ switch ($_REQUEST["action"]) {
         $response = array("success" => $deleted);
 
         break;
+
+    case "addToList";
+        $list = new _List($_REQUEST["listID"]);
+
+        if (!$list->is_list()){
+            echo json_encode(array("success" => false));
+            exit;
+        }
+
+        $added = $list->add($_REQUEST["itemInfo"]);
+
+        $response = array("success" => $added);
+        break;
 }
 
 echo json_encode( $response );
