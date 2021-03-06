@@ -5,3 +5,4 @@ require CLASSES . "user.class.php";
 require CLASSES . "page.class.php";
 require CLASSES . "uuid.class.php";
 require CLASSES . "list.class.php";
+require CLASSES . "lists.class.php";
