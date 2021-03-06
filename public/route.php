@@ -17,13 +17,16 @@ switch (strtolower($page->get(0))) {
         header("Location: /todo");
         break;
 
+    case "add":
+        $page->template("add");
+        break;
+
     default:
         $list = new _List();
 
         if ($list->is_list($page->get(1)) && $list->user_access($user)) {
             $page->template("list");
-        } else {
-            $page->template("404");
+            exit;
         }
 
         $page->template("404");

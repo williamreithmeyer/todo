@@ -6,6 +6,7 @@ define ("CLASSES", dirname(__FILE__) . "/functions/");
 define ("PRIVATE_FOLDER", dirname(__FILE__, 2) . "/private/");
 define ("PUBLIC_FOLDER", dirname(__FILE__, 2) . "/public/");
 define ("TEMPLATES_FOLDER", PUBLIC_FOLDER . "templates/");
+define ("LISTS_FOLDER", dirname(__FILE__, 2) . "/lists/");
 
 define ("ASSETS", "/public/assets/");
 define ("ASSETS_CSS", ASSETS . "css/");

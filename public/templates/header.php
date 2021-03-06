@@ -13,4 +13,4 @@ global $page, $user;
 
 </head>
 <body>
-    <main class="container-sm">
+    <main class="container-sm p-4">
