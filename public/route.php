@@ -24,7 +24,7 @@ switch (strtolower($page->get(0))) {
     default:
         $list = new _List();
 
-        if ($list->is_list($page->get(1)) && $list->user_access($user)) {
+        if ($list->is_list($page->get(0)) && $list->user_access($user)) {
             $page->template("list");
             exit;
         }
