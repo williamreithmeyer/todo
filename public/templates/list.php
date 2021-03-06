@@ -8,4 +8,6 @@ $page->head();
 
 echo "<h1>{$list->name}</h1>";
 
+$list->display();
+
 $page->footer();
