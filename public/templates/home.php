@@ -10,12 +10,12 @@ $page->head();
     $lists = new _Lists();
 
     $lists = $lists->toArray;
-    echo "<ul class=\"list-group\">";
+    echo "<div class=\"list-group\">";
     foreach ($lists as $todolist){
         $list = new _List($todolist);
         $list->display_short();
     }
-    echo "</ul>";
+    echo "</div>";
 ?>
 
 <a href="add" class="btn btn-primary" type="button">Create List</a>

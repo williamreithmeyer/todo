@@ -28,7 +28,7 @@ class _List {
     public function display_short()
     {
         // TODO add links
-        echo "<li class=\"list-group-item\"><a href=\"{$this->listID}\">{$this->name}</a></li>";
+        echo "<a class=\"list-group-item list-group-item-action\" href=\"{$this->listID}\">{$this->name}</a>";
     }
 
     public function display()
@@ -36,16 +36,36 @@ class _List {
         foreach ($this->list as $list => $item){
             $status = $item["status"] == "checked" ? "checked" : "";
             ?>
-            <div class="form-check form-check-inline ">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" <?php echo $status; ?> value="<?php echo $list; ?>">
-                <label class="form-check-label" for="inlineCheckbox1"><?php echo $item["info"]; ?></label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <input id="list-item-checkbox-<?php echo $list; ?>" type="checkbox" value="<?php echo $list; ?>" <?php echo $status; ?>>
+                    </div>
+                </div>
+                <input type="text" id="list-item-input-<?php echo $list; ?>" class="form-control" value="<?php echo $item["info"]; ?>">
             </div>
         <?php
         }
     }
 
-    public function is_list($listID)
+    public function save_part($key, $value)
     {
+        $list = json_decode(file_get_contents(LISTS_FOLDER . $this->listID . ".json"), true);
+
+        if (isset($list[$key])) {
+            $list[$key] = $value;
+            file_put_contents(LISTS_FOLDER . $this->listID . ".json", json_encode($list));
+            return true;
+        }
+
+        return false;
+    }
+
+    public function is_list($listID = null)
+    {
+        if ($listID == null) {
+            return file_exists(LISTS_FOLDER . $this->listID . ".json");
+        }
         return file_exists(LISTS_FOLDER . $listID . ".json");
     }
 

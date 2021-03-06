@@ -6,8 +6,16 @@ $list->set($page->get(0));
 
 $page->head();
 
-echo "<h1>{$list->name}</h1>";
+echo "<input data-list=\"{$list->listID}\" class=\"form-control-lg\" id=\"list_title_input\" value=\"{$list->name}\">";
 
-$list->display();
+$list->display(); ?>
 
+<div class="input-group mb-3">
+  <input type="text" id="list-item-input-add" class="form-control" placeholder="Todo Item">
+  <div class="input-group-append">
+    <button id="list-item-button-add" class="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
+  </div>
+</div>
+
+<?php
 $page->footer();

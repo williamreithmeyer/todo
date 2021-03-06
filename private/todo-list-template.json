@@ -2,13 +2,13 @@
   "name": "",
   "listItems": [
     {
-      "info": "First item",
-      "status": "unchecked",
+      "info": "Create List",
+      "status": "checked",
       "due": "",
       "priority": ""
     }
   ],
   "author": "",
-  "dateCreate": "",
+  "dateCreated": "",
   "dateMod": ""
 }
