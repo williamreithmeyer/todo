@@ -40,6 +40,19 @@ switch ($_REQUEST["action"]) {
 
         break;
 
+    case "deleteList":
+        $list = new _List($_REQUEST["listID"]);
+
+        if (!$list->is_list()){
+            echo json_encode(array("success" => false));
+            exit;
+        }
+
+        $deleted = $list->delete();
+
+        $response = array("success" => $deleted);
+
+        break;
 }
 
 echo json_encode( $response );

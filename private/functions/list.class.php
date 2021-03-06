@@ -61,6 +61,12 @@ class _List {
         return false;
     }
 
+    public function delete()
+    {
+        unlink(LISTS_FOLDER . $this->listID . ".json");
+        return (!file_exists(LISTS_FOLDER . $this->listID . ".json"));
+    }
+
     public function is_list($listID = null)
     {
         if ($listID == null) {

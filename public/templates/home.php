@@ -18,7 +18,7 @@ $page->head();
     echo "</div>";
 ?>
 
-<a href="add" class="btn btn-primary" type="button">Create List</a>
+<a href="add" class="mt-2 btn btn-primary" type="button">Create List</a>
 
 <?php
 $page->footer();

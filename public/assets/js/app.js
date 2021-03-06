@@ -38,4 +38,22 @@ $(document).ready(function (e) {
         });
     });
 
+    $("#list_delete").on("click", function() {
+        $.ajax({
+            url: ajaxURL,
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                action: "deleteList",
+                listID: $("#list_delete").attr("data-list")
+            },
+            success: function (data) {
+                console.log(data);
+                if (data["success"]){
+                    window.location.href = "/todo/";
+                }
+            }
+        });
+    });
+
 });

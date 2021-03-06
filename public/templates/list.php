@@ -17,5 +17,7 @@ $list->display(); ?>
   </div>
 </div>
 
+<button class="btn btn-danger" id="list_delete" data-list="<?php echo $list->listID; ?>">Delete</button>
+
 <?php
 $page->footer();
